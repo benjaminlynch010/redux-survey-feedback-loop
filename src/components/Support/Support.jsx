@@ -5,14 +5,10 @@ import { useHistory } from "react-router-dom";
 function Support() {
   const dispatch = useDispatch();
   const history = useHistory();
-  const [ support, setSupport ] = useState({
-    support: "",
-  });
+  const [ support, setSupport ] = useState(0);
   
   const handleInput = (event) => {
-    setSupport({
-      support: event.target.value,
-    });
+    setSupport(event.target.value)
   };
   
   const handleNextStep = () => {

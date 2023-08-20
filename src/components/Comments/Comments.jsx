@@ -5,19 +5,15 @@ import { useHistory } from "react-router-dom";
 function Comments() {
   const dispatch = useDispatch();
   const history = useHistory();
-  const [ comments, setComments ] = useState({
-    comments: "",
-  });
+  const [ comments, setComments ] = useState('');
   
   const handleInput = (event) => {
-    setComments({
-      comments: event.target.value,
-    });
+    setComments(event.target.value)
   };
   
   const handleNextStep = () => {
     dispatch({
-      type: "ADD_COMMENTS",
+      type: "ADD_COMMENT",
       payload: comments,
     });
     history.push("/Review");
@@ -29,7 +25,7 @@ function Comments() {
       <input
         onChange={handleInput}
         type="text"
-        placeholder="Rate from 1 to 5"
+        placeholder="Comments?"
       ></input>
       <button onClick={() => handleNextStep()}>Next</button>
     </>

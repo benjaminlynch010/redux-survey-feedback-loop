@@ -5,14 +5,10 @@ import { useHistory } from "react-router-dom";
 function Understanding() {
   const dispatch = useDispatch();
   const history = useHistory();
-  const [ understanding, setUnderstanding ] = useState({
-    understanding: "",
-  });
+  const [ understanding, setUnderstanding ] = useState(0);
   
   const handleInput = (event) => {
-    setUnderstanding({
-      understanding: event.target.value,
-    });
+    setUnderstanding (event.target.value)
   };
   
   const handleNextStep = () => {

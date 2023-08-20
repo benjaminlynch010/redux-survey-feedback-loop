@@ -14,12 +14,27 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   const feedbackData = req.body
-    res.status(201).json({ message: "Feedback POST was successful" })
-    // .catch((error) => {
-    //   res.sendStatus(500)
-    //   console.error(`Server POST unsuccessful, Error : ${error}`)
-    // })
+  console.log(`Feeling : ${feedbackData}`)
+  const queryText = `
+  INSERT INTO feedback (feeling, understanding, support, comments)
+  VALUES (
+    '${feedbackData.feeling}', 
+    '${feedbackData.understanding}', 
+    '${feedbackData.support}', 
+    '${feedbackData.comments}'
+  )`
+  
+  pool.query(queryText)
+    .then((result) => {
+      res.status(201).json({ message: "Feedback POST was successful" })
+    })
+    .catch((error) => {
+      res.sendStatus(500)
+      console.error(`Server POST unsuccessful, Error : ${error}`)
+    })
   })
 
 
 module.exports = router
+
+

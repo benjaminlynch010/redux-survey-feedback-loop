@@ -5,14 +5,10 @@ import { useHistory } from "react-router-dom";
 function Feelings() {
   const dispatch = useDispatch();
   const history = useHistory();
-  const [ feeling, setFeeling ] = useState({
-    feeling: "",
-  });
+  const [ feeling, setFeeling ] = useState(0);
 
   const handleInput = (event) => {
-    setFeeling({
-      feeling: event.target.value,
-    });
+    setFeeling(event.target.value);
   };
 
   // Next button click will add feeling obj to store
@@ -21,6 +17,7 @@ function Feelings() {
         type: 'ADD_FEELING',
         payload: feeling
       })
+      console.log(feeling.feeling)
       history.push('/Understanding')
   };
 

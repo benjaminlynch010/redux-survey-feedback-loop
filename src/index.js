@@ -10,32 +10,35 @@ import logger from 'redux-logger'
 
 
 // *** REDUCERS ***
-const newFeeling = (state = [], action) => {
+const newFeeling = (state = 0, action) => {
   if (action.type === 'ADD_FEELING') {
-    return [ action.payload ]
+    console.log(action.payload)
+    return action.payload;
   }
-  return state
+  return state;
 }
-const newUnderstanding = (state = [], action) => {
+
+const newUnderstanding = (state = 0, action) => {
   if (action.type === 'ADD_UNDERSTANDING') {
-    return [ action.payload ]
+    return action.payload;
   }
-  return state
+  return state;
 }
 
-const newSupport = (state = [], action) => {
+const newSupport = (state = 0, action) => {
   if (action.type === 'ADD_SUPPORT') {
-    return [ action.payload ]
+    return action.payload;
   }
-  return state
+  return state;
 }
 
-const newComment = (state = [], action) => {
+const newComment = (state = '', action) => {
   if (action.type === 'ADD_COMMENT') {
-    return [ action.payload ]
+    return action.payload;
   }
-  return state
+  return state;
 }
+
 
 // *** STORE ***
 const storeInstance = createStore(

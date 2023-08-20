@@ -20,6 +20,14 @@ function FeedbackTable() {
       });
   };
 
+  const checkFlag = (value) => {
+    if (value) {
+      return '⛳️'
+    }
+    if (!value) {
+      return ''
+    }
+  }
   return (
     <div>
       {feedback.map((tablerow) => (
@@ -41,7 +49,7 @@ function FeedbackTable() {
                 <td>{tablerow.understanding}</td>
                 <td>{tablerow.support}</td>
                 <td>{tablerow.comments}</td>
-                <td>{tablerow.flagged}</td>
+                <td>{checkFlag(tablerow.flagged)}</td>
                 <td>{tablerow.date}</td>
               </tr>
             </tbody>
