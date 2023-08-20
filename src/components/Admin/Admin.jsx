@@ -1,35 +1,15 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { useSelector } from "react-redux";
-import { useDispatch } from 'react-redux';
-import { useHistory } from "react-router-dom";
+import FeedbackTable from "../FeedbackTable/FeedbackTable";
 
 function Admin() {
 
-  const [feedback, setFeedback] = useState([])
-  
-  useEffect(() => {
-    fetchFeedback()
-  }, [])
 
-const fetchFeedback = () => {
-    axios.get('/feedback')
-    .then((response) => {
-      console.log('GET Request ✅')
-      setFeedback(response.data)
-    })
-    .catch((error) => {
-      console.error('GET Request ⛔️', error)
-    })
-  }
 
-  // return(
-  //   <div>
-  //     {feedback.map((tableRow) => (
-  //       <p key={tableRow.id} tableRow={tableRow}></p>
-  //       ))}
-  //   </div>
-  // )  
+  return(
+    <div>
+      <FeedbackTable />
+    </div>
+  )  
 }
 
-export default Admin
+export default Admin  
