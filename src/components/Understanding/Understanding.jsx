@@ -18,8 +18,8 @@ function Understanding() {
         const newUnderstanding = {
           description: understanding.description,
         };
-        console.log(`newFeelings : ${newUnderstanding.description}`)
-        history.push('/3')
+        console.log(`newUnderstanding : ${newUnderstanding.description}`)
+        history.push('/Support')
       };
     
       const handleChange = (event) => {

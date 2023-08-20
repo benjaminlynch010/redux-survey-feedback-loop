@@ -25,13 +25,13 @@ function App() {
           <Route exact path="/admin">
             <Admin />
           </Route>
-          <Route exact path="/">
+          <Route exact path="/Feelings">
             <Feelings />
           </Route>
-          <Route exact path="/2">
+          <Route exact path="/Understanding">
             <Understanding />
           </Route>
-          <Route exact path="/3">
+          <Route exact path="/Support">
             <Support />
           </Route>
           <Route exact path="/Comments">

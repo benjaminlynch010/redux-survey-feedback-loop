@@ -5,13 +5,13 @@ function Navbar() {
   return (
     <ul className="navbar">
       <li>
-        <Link to="/">Page 1 Feelings</Link>
+        <Link to="/Feelings">Page 1 Feelings</Link>
       </li>
       <li>
-        <Link to="/2">Page 2 Understanding</Link>
+        <Link to="/Understanding">Page 2 Understanding</Link>
       </li>
       <li>
-        <Link to="/3">Page 3 Support</Link>
+        <Link to="/Support">Page 3 Support</Link>
       </li>
       <li>
         <Link to="/Comments">Comments</Link>

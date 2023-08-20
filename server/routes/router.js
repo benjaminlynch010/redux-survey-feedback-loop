@@ -12,4 +12,14 @@ router.get('/', (req, res) => {
   });
 })
 
+router.post('/', (req, res) => {
+  const feedbackData = req.body
+    res.status(201).json({ message: "Feedback POST was successful" })
+    // .catch((error) => {
+    //   res.sendStatus(500)
+    //   console.error(`Server POST unsuccessful, Error : ${error}`)
+    // })
+  })
+
+
 module.exports = router
