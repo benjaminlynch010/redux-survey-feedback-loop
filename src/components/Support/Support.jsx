@@ -30,7 +30,7 @@ function Support() {
       <button 
         onClick={handleClick}
         disabled={ support === '' || support < 1 || support > 5 }>
-        Submit
+        Next
       </button>
     </>
   );

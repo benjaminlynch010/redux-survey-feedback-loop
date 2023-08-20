@@ -30,7 +30,7 @@ function Understanding() {
       <button 
         onClick={handleClick}
         disabled={ understanding === '' || understanding < 1 || understanding > 5 }>
-        Submit
+        Next
       </button>
     </>
   );

@@ -31,7 +31,7 @@ function Feelings() {
       <button 
         onClick={handleClick}
         disabled={ feeling === '' || feeling < 1 || feeling > 5 }>
-        Submit
+        Next
       </button>
     </>
   );
