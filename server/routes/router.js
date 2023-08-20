@@ -14,7 +14,6 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   const feedbackData = req.body
-  console.log(`Feeling : ${feedbackData}`)
   const queryText = `
   INSERT INTO feedback (feeling, understanding, support, comments)
   VALUES (

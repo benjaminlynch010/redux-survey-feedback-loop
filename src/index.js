@@ -10,7 +10,7 @@ import logger from 'redux-logger'
 
 
 // *** REDUCERS ***
-const newFeeling = (state = 0, action) => {
+const newFeeling = (state = '', action) => {
   if (action.type === 'ADD_FEELING') {
     console.log(action.payload)
     return action.payload;
@@ -18,14 +18,14 @@ const newFeeling = (state = 0, action) => {
   return state;
 }
 
-const newUnderstanding = (state = 0, action) => {
+const newUnderstanding = (state = '', action) => {
   if (action.type === 'ADD_UNDERSTANDING') {
     return action.payload;
   }
   return state;
 }
 
-const newSupport = (state = 0, action) => {
+const newSupport = (state = '', action) => {
   if (action.type === 'ADD_SUPPORT') {
     return action.payload;
   }

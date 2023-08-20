@@ -15,11 +15,6 @@ function Review() {
       support: supportRating,
       comments: commentData,
     };  
-    
-    console.log(`feeling : ${feelingRating}`);
-  console.log(`understanding : ${understandingRating}`);
-  console.log(`support : ${supportRating}`);
-  console.log(`comments : ${commentData}`);
   
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -36,12 +31,12 @@ function Review() {
   return (
     <div>
       <h1>Review Your Feedback</h1>
-      <container>
+      <div>
         <p>Feeling : {feelingRating}</p>
         <p>Understanding : {understandingRating}</p>
         <p>Support : {supportRating}</p>
         <p>Comments : {commentData}</p>
-      </container>
+      </div>
       <button onClick={handleSubmit}>Submit</button>
     </div>
   );

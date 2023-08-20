@@ -5,29 +5,33 @@ import { useHistory } from "react-router-dom";
 function Understanding() {
   const dispatch = useDispatch();
   const history = useHistory();
-  const [ understanding, setUnderstanding ] = useState(0);
+  const [ understanding, setUnderstanding ] = useState('');
   
   const handleInput = (event) => {
     setUnderstanding (event.target.value)
   };
   
-  const handleNextStep = () => {
-    dispatch({
-      type: "ADD_UNDERSTANDING",
-      payload: understanding,
-    });
-    history.push("/Support");
+  const handleClick = () => {
+      dispatch({
+        type: "ADD_UNDERSTANDING",
+        payload: understanding,
+      });
+      history.push("/Support");
   };
 
   return (
     <>
       <h1>Understanding</h1>
       <input
-        onChange={handleInput}
-        type="text"
-        placeholder="Rate from 1 to 5"
-      ></input>
-      <button onClick={() => handleNextStep()}>Next</button>
+          type="number"
+          placeholder="Rate from 1 to 5"
+          onChange={handleInput}>
+        </input>
+      <button 
+        onClick={handleClick}
+        disabled={ understanding === '' || understanding < 1 || understanding > 5 }>
+        Submit
+      </button>
     </>
   );
 }
