@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from "react";
-import FeedbackTable from "../FeedbackTable/FeedbackTable";
+import React from "react";
+import FeedbackTable from "./FeedbackTable";
 
 function Admin() {
-
-
-
   return(
     <div>
       <FeedbackTable />

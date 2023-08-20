@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './components/App/App';
 
+// Material UI Theme Setup
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './theme'; // You'll need to create this theme
+
 // Redux Setup
 import { Provider } from 'react-redux'
 import { createStore, combineReducers, applyMiddleware } from 'redux'
@@ -57,7 +61,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
       <Provider store={storeInstance}>
-        <App />
+
+          <App />
+
       </Provider>
     </React.StrictMode>
 );
