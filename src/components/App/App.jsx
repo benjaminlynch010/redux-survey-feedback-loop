@@ -3,6 +3,7 @@ import { HashRouter as Router, Route, Link } from "react-router-dom";
 import axios from "axios";
 
 import "./App.css";
+import Admin from '../Admin/Admin'
 import Navbar from "../Navbar/Navbar"
 import Feelings from "../Feelings/Feelings";
 import Understanding from "../Understanding/Understanding"
@@ -21,6 +22,9 @@ function App() {
       <Router>
         <Navbar />
         <div>
+          <Route exact path="/admin">
+            <Admin />
+          </Route>
           <Route exact path="/">
             <Feelings />
           </Route>

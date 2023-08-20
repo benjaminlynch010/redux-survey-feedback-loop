@@ -10,6 +10,7 @@ app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
 const Router = require('./routes/router')
+app.use('/feedback', Router)
 
 /** ---------- START SERVER ---------- **/
 app.listen(PORT, () => {
