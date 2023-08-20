@@ -9,45 +9,46 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import logger from 'redux-logger'
 
 
+// *** REDUCERS ***
+const newFeeling = (state = [], action) => {
+  if (action.type === 'ADD_FEELING') {
+    return [ action.payload ]
+  }
+  return state
+}
+const newUnderstanding = (state = [], action) => {
+  if (action.type === 'ADD_UNDERSTANDING') {
+    return [ action.payload ]
+  }
+  return state
+}
+
+const newSupport = (state = [], action) => {
+  if (action.type === 'ADD_SUPPORT') {
+    return [ action.payload ]
+  }
+  return state
+}
+
+const newComment = (state = [], action) => {
+  if (action.type === 'ADD_COMMENT') {
+    return [ action.payload ]
+  }
+  return state
+}
+
 // *** STORE ***
 const storeInstance = createStore(
   combineReducers({
-    feelings,
-    understanding,
-    support,
-    comments,
+    newFeeling,
+    newUnderstanding,
+    newSupport,
+    newComment,
   }),
   applyMiddleware(logger)
 )
 
 
-// *** REDUCERS ***
-const feelings = (state = [], action) => {
-  if (action.type === 'ADD_FEELINGS') {
-    return [...state, action.payload]
-  }
-  return state
-}
-const understanding = (state = [], action) => {
-  if (action.type === 'ADD_UNDERSTANDING') {
-    return [...state, action.payload]
-  }
-  return state
-}
-
-const support = (state = [], action) => {
-  if (action.type === 'ADD_SUPPORT') {
-    return [...state, action.payload]
-  }
-  return state
-}
-
-const comments = (state = [], action) => {
-  if (action.type === 'ADD_COMMENTS') {
-    return [...state, action.payload]
-  }
-  return state
-}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

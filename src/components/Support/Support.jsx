@@ -1,48 +1,39 @@
 import React, { useState } from "react";
-import axios from "axios";
-import { useSelector } from "react-redux";
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 function Support() {
-
   const dispatch = useDispatch();
   const history = useHistory();
-
-  const [support, setSupport] = useState({
-    description: "",
+  const [ support, setSupport ] = useState({
+    support: "",
   });
-
-  const supportInput = (event) => {
-    event.preventDefault();
-    const newSupport = {
-      description: support.description,
-    };
-    console.log(`newSupport : ${newSupport.description}`)
-    history.push('/Comments')
-  };
-
-  const handleChange = (event) => {
+  
+  const handleInput = (event) => {
     setSupport({
-      ...Support,
-      description: event.target.value,
+      support: event.target.value,
     });
+  };
+  
+  const handleNextStep = () => {
+    dispatch({
+      type: "ADD_SUPPORT",
+      payload: support,
+    });
+    history.push("/Comments");
   };
 
   return (
     <>
       <h1>Support</h1>
-      <form onSubmit={(event) => supportInput(event)}>
-        <input
-          onChange={handleChange}
-          type="text"
-          placeholder="How supported do you feel?"
-        ></input>
-        <button type="submit">Next</button>
-      </form>
+      <input
+        onChange={handleInput}
+        type="text"
+        placeholder="Rate from 1 to 5"
+      ></input>
+      <button onClick={() => handleNextStep()}>Next</button>
     </>
   );
-
 }
 
-export default Support
+export default Support;
