@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
-
+const Router = require('./routes/router')
 
 /** ---------- START SERVER ---------- **/
 app.listen(PORT, () => {
