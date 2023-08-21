@@ -21,21 +21,24 @@ function Feelings() {
   };
 
   return (
-    <Box display="flex" flexDirection="column" alignItems="center" p={4}>
-      <Typography variant="h4" gutterBottom>
+    <Box 
+    sx={{ '& .MuiTextField-root': { m: 1, width: '25ch' }, }} 
+    display="flex" flexDirection="column" alignItems="center" p={4}>
+      <Typography variant="h4" >
         Feelings
       </Typography>
-      <TextField
-        type="number"
-        label="Rate from 1 to 5"
-        placeholder="Rate from 1 to 5"
-        value={feeling}
-        onChange={handleInput}
-        inputProps={{
-          min: 1,
-          max: 5,
-        }}
-      />
+
+        <TextField
+          type="number"
+          placeholder="Rate from 1 to 5"
+          value={feeling}
+          onChange={handleInput}
+          inputProps={{
+            min: 1,
+            max: 5,
+          }}
+          />
+
       <Button
         variant="contained"
         color="primary"

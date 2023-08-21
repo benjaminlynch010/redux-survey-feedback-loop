@@ -1,7 +1,3 @@
--- Database should be prime_feedback
-
--- Switch to "prime_feedback" before making:
--- Table to store the feedback
 CREATE TABLE "feedback" (
   "id" serial primary key,
   "feeling" INT not null,
@@ -14,4 +10,7 @@ CREATE TABLE "feedback" (
 
 -- Sample feedback item
 INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
-VALUES (4, 4, 5, 'Doing Great!');
+VALUES (4, 4, 5, 'You are Kenough');
+
+-- For Testing
+DROP TABLE feedback

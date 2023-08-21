@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { TextField, Button, Typography, Box } from "@mui/material";
 
 function Support() {
   const dispatch = useDispatch();
@@ -20,20 +21,35 @@ function Support() {
   };
 
   return (
-    <>
-      <h1>Support</h1>
-      <input
+<Box 
+    sx={{ '& .MuiTextField-root': { m: 1, width: '25ch' }, }} 
+    display="flex" flexDirection="column" alignItems="center" p={4}>
+      <Typography variant="h4" >
+        Support
+      </Typography>
+
+        <TextField
           type="number"
           placeholder="Rate from 1 to 5"
-          onChange={handleInput}>
-        </input>
-      <button 
+          value={support}
+          onChange={handleInput}
+          inputProps={{
+            min: 1,
+            max: 5,
+          }}
+          />
+
+      <Button
+        variant="contained"
+        color="primary"
         onClick={handleClick}
-        disabled={ support === '' || support < 1 || support > 5 }>
+        disabled={support === '' || support < 1 || support > 5}
+        style={{ marginTop: "20px" }}
+      >
         Next
-      </button>
-    </>
-  );
+      </Button>
+    </Box>
+  )
 }
 
 export default Support;

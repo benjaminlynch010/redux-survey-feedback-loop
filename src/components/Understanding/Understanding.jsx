@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { TextField, Button, Typography, Box } from "@mui/material";
 
 function Understanding() {
   const dispatch = useDispatch();
@@ -20,19 +21,34 @@ function Understanding() {
   };
 
   return (
-    <>
-      <h1>Understanding</h1>
-      <input
+<Box 
+    sx={{ '& .MuiTextField-root': { m: 1, width: '25ch' }, }} 
+    display="flex" flexDirection="column" alignItems="center" p={4}>
+      <Typography variant="h4" >
+        Understanding
+      </Typography>
+
+        <TextField
           type="number"
           placeholder="Rate from 1 to 5"
-          onChange={handleInput}>
-        </input>
-      <button 
+          value={understanding}
+          onChange={handleInput}
+          inputProps={{
+            min: 1,
+            max: 5,
+          }}
+          />
+
+      <Button
+        variant="contained"
+        color="primary"
         onClick={handleClick}
-        disabled={ understanding === '' || understanding < 1 || understanding > 5 }>
+        disabled={understanding === '' || understanding < 1 || understanding > 5}
+        style={{ marginTop: "20px" }}
+      >
         Next
-      </button>
-    </>
+      </Button>
+    </Box>
   );
 }
 

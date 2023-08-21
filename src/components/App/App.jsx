@@ -1,8 +1,7 @@
 import React from "react";
 import { HashRouter as Router, Route } from "react-router-dom";
-import Navbar from '../Navigation/Navbar'
-import "./App.css";
-import Home from "../Home/Home"
+import Header from '../Header/Header'
+import Navbar from '../Navbar/Navbar'
 import Admin from '../Admin/Admin'
 import Feelings from "../Feelings/Feelings";
 import Understanding from "../Understanding/Understanding"
@@ -10,25 +9,26 @@ import Support from "../Support/Support"
 import Comments from "../Comments/Comments";
 import Review from "../Review/Review"
 
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1 className="App-title">Feedback!</h1>
-        <h4>Don't forget it!</h4>
-      </header>
-
+      <div>
+        <Header />
+      </div>
+      
       <Router>
         <Navbar />
         <Route exact path="/">
-          <Home />
+          <Feelings />
         </Route>
         <Route exact path="/admin">
           <Admin />
-        </Route>
-        <Route exact path="/Feelings">
-          <Feelings />
         </Route>
         <Route exact path="/Understanding">
           <Understanding />
