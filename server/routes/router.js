@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 
+// GET Route
 router.get('/', (req, res) => {
   pool.query('SELECT * FROM "feedback" ORDER BY date DESC').then((result) => {
       res.send(result.rows);
@@ -11,6 +12,7 @@ router.get('/', (req, res) => {
   });
 })
 
+// POST Route
 router.post('/', (req, res) => {
   const feedbackData = req.body
   const queryText = `
@@ -32,25 +34,26 @@ router.post('/', (req, res) => {
     })
   })
 
-  router.put('/:id', (req, res) => {
-    const id = [ req.params ]
-    const flagStatus = req.body
-    const queryText = `
-    UPDATE feedback (flagged)
-    SET flagged != $1
-    WHERE id = $2
-    `
+  // PUT Route
+  // router.put('/', (req, res) => {
+  //   const queryParams = 
+  //   const queryText = `
+  //   UPDATE feedback (flagged)
+  //   SET flagged != $1
+  //   WHERE id = $2
+  //   `
 
-    pool.query(flagStatus, queryText)
-    .then((result) => {
-      res.status(200).json({ message: "Feedback PUT was successful" })
-    })
-    .catch((error) => {
-      res.sendStatus(500)
-      console.error(`Server PUT unsuccessful, Error : ${error}`)
-    })
+  //   pool.query()
+  //   .then((result) => {
+  //     res.status(200).json({ message: "Feedback PUT was successful" })
+  //   })
+  //   .catch((error) => {
+  //     res.sendStatus(500)
+  //     console.error(`Server PUT unsuccessful, Error : ${error}`)
+  //   })
+  // })
 
-  })
+  // DELETE Route
 
 
 module.exports = router
