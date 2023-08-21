@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Table, TableHead, TableBody, TableRow, TableCell } from '@mui/material';
+import { Grid, Typography, Paper, Button } from '@mui/material';
 
 function FeedbackTable() {
   const [feedback, setFeedback] = useState([]);
@@ -22,41 +22,59 @@ function FeedbackTable() {
   };
 
   const checkFlag = (value) => {
-    if (value) {
-      return '🚩'
-    }
-    if (!value) {
-      return ''
-    }
-  }
-  return (
-    <div>
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>Feeling</TableCell>
-            <TableCell>Understanding</TableCell>
-            <TableCell>Support</TableCell>
-            <TableCell>Comments</TableCell>
-            <TableCell>Flagged</TableCell>
-            <TableCell>Date</TableCell>
-          </TableRow>
-        </TableHead>
+    return value ? '🚩' : '';
+  };
 
-        <TableBody>
-          {feedback.map((tablerow) => (
-            <TableRow key={tablerow.id} className="table-row">
-              <TableCell>{tablerow.feeling}</TableCell>
-              <TableCell>{tablerow.understanding}</TableCell>
-              <TableCell>{tablerow.support}</TableCell>
-              <TableCell>{tablerow.comments}</TableCell>
-              <TableCell>{checkFlag(tablerow.flagged)}</TableCell>
-              <TableCell>{new Date(tablerow.date).toLocaleDateString()}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </div>
+  // TODO PUT request & toggler function
+  // const toggleFlag = () => {
+  //
+  //   }
+
+  //   axios.put('/:id', value)
+  //     .then((response) => {
+  //       console.log("PUT Request ✅")
+  //     })
+  //     .catch((error) => {
+  //       console.error("PUT Request ⛔️", error);        
+  //     })
+  // }
+
+  // TODO DELETE request
+
+  return (
+    <Grid container spacing={2} justifyContent="center" alignItems="center">
+      {feedback.map((tablerow) => (
+        <Grid item key={tablerow.id} xs={12}>
+          <Paper elevation={3} style={{ padding: "20px" }}>
+            <Typography variant="h6">
+              Feedback
+            </Typography>
+            <Typography variant="body1">
+              Feeling: {tablerow.feeling}
+            </Typography>
+            <Typography variant="body1">
+              Understanding: {tablerow.understanding}
+            </Typography>
+            <Typography variant="body1">
+              Support: {tablerow.support}
+            </Typography>
+            <Typography variant="body1">
+              Comments: {tablerow.comments}
+            </Typography>
+            <Typography variant="body1">
+              Flagged: { checkFlag(tablerow.flagged) }
+            </Typography>
+            <Typography variant="body1">
+              Date: {new Date(tablerow.date).toLocaleDateString()}
+            </Typography>
+            {/* TODO add toggle function later */}
+            {/* <Button onClick={toggleFlag(tablerow.flagged)}>
+              Flag
+            </Button> */}
+          </Paper>
+        </Grid>
+      ))}
+    </Grid>
   );
 }
 

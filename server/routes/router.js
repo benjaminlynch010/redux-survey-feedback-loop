@@ -32,6 +32,26 @@ router.post('/', (req, res) => {
     })
   })
 
+  router.put('/:id', (req, res) => {
+    const id = [ req.params ]
+    const flagStatus = req.body
+    const queryText = `
+    UPDATE feedback (flagged)
+    SET flagged != $1
+    WHERE id = $2
+    `
+
+    pool.query(flagStatus, queryText)
+    .then((result) => {
+      res.status(200).json({ message: "Feedback PUT was successful" })
+    })
+    .catch((error) => {
+      res.sendStatus(500)
+      console.error(`Server PUT unsuccessful, Error : ${error}`)
+    })
+
+  })
+
 
 module.exports = router
 

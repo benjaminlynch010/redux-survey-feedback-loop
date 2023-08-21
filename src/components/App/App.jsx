@@ -2,6 +2,7 @@ import React from "react";
 import { HashRouter as Router, Route } from "react-router-dom";
 import Navbar from '../Navigation/Navbar'
 import "./App.css";
+import Home from "../Home/Home"
 import Admin from '../Admin/Admin'
 import Feelings from "../Feelings/Feelings";
 import Understanding from "../Understanding/Understanding"
@@ -20,6 +21,9 @@ function App() {
 
       <Router>
         <Navbar />
+        <Route exact path="/">
+          <Home />
+        </Route>
         <Route exact path="/admin">
           <Admin />
         </Route>
